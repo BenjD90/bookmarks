@@ -1,0 +1,107 @@
+<html>
+  <head>
+    <title>Bookmarks</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@vuepic/vue-datepicker@latest/dist/main.css"
+    />
+    <style type="text/css">
+      :root {
+        --text: #000;
+        --bg: #fff;
+      }
+
+      body {
+        background-color: var(--bg);
+        color: var(--text);
+        font-size: 20px;
+      }
+
+      a {
+        color: deepskyblue;
+      }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --text: #fff;
+          --bg: #000;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://unpkg.com/vue@3.2.47"></script>
+    <script src="https://unpkg.com/@vuepic/vue-datepicker@latest"></script>
+    <script type="module" setup>
+      const date = Vue.ref();
+      const urlParams = new URLSearchParams(window.location.search);
+
+      const urlParam = urlParams.get("date");
+      const startDate = urlParam ? new Date(urlParam) : new Date();
+      if (!urlParam) {
+        startDate.setDate(startDate.getDate() - ((startDate.getDay() + 6) % 7)); // last monday
+      }
+      const endDate = new Date(
+        new Date(startDate).setDate(startDate.getDate() + 21)
+      );
+      date.value = [startDate, endDate];
+      const startDateString = date.value[0].toISOString().split("T")[0];
+      const endDateString = date.value[1].toISOString().split("T")[0];
+
+      Vue.createApp({
+        components: { Datepicker: VueDatePicker },
+        data() {
+          return {
+            date,
+            startDateString,
+            endDateString,
+            handleDate: (date) => {
+              this.startDateString = date[0].toISOString().split("T")[0];
+              this.endDateString = date[1].toISOString().split("T")[0];
+            },
+          };
+        },
+        methods: {},
+      }).mount("#app");
+    </script>
+
+    <div id="app">
+      <DatePicker
+        v-model="date"
+        range
+        auto-range="21"
+        multi-calendars
+        :enable-time-picker="false"
+        :format="'dd/MM/yyyy'"
+        dark
+        @update:model-value="handleDate"
+      ></DatePicker>
+      <ul>
+        <li>
+          <a
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=conception&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString +'&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2507&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            >Conception</a
+          ><br />
+        </li>
+        <li>
+          <a
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=run&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key%20in%20%28CATW-2384%29%20OR%20type%20%3D%20bug&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            >Run (bugs/recette + support clients)</a
+          ><br />
+        </li>
+        <li>
+          <a
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=support-devops&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2387&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            >Support Devops</a
+          ><br />
+        </li>
+        <li>
+          <a
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=hors-projet&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2385&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            >Hors projet</a
+          ><br />
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>
