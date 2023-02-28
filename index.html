@@ -15,6 +15,7 @@
         background-color: var(--bg);
         color: var(--text);
         font-size: 20px;
+        margin: 20px 0 0 0;
       }
 
       a {
@@ -30,7 +31,7 @@
     </style>
   </head>
   <body>
-    <script src="https://unpkg.com/vue@3.2.47"></script>
+    <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.prod.js"></script>
     <script src="https://unpkg.com/@vuepic/vue-datepicker@latest"></script>
     <script type="module" setup>
       const date = Vue.ref();
@@ -102,6 +103,13 @@
           ><br />
         </li>
       </ul>
+      <br />
+      Conception :
+      <iframe
+        width="100%"
+        height="500px"
+        :src="'https://neo9-team.atlassian.net/projects/CATW?name=conception&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString +'&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2507&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+      ></iframe>
     </div>
   </body>
 </html>
