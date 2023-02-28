@@ -80,27 +80,33 @@
       <ul>
         <li>
           <a
-            :href="'https://neo9-team.atlassian.net/projects/CATW?name=conception&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString +'&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2507&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=run&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor%2Cissuekey&jqlFilter=key%20in%20%28CATW-2384%2CCATW-2387%29&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            >Run (Support Devops + Support Clients)</a
+          >
+        </li>
+        <li>
+          <a
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=conception&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString +'&to=' + endDateString + '&groupBy=issuetype%2Cissuekey%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2507&period=days&projects=10009&timeZone=user&wlFormat=hours'"
             >Conception</a
-          ><br />
+          >
         </li>
         <li>
           <a
-            :href="'https://neo9-team.atlassian.net/projects/CATW?name=run&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key%20in%20%28CATW-2384%29%20OR%20type%20%3D%20bug&period=days&projects=10009&timeZone=user&wlFormat=hours'"
-            >Run (bugs/recette + support clients)</a
-          ><br />
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=recette&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=type%20%3D%20bug&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            >Recette</a
+          >
         </li>
         <li>
           <a
-            :href="'https://neo9-team.atlassian.net/projects/CATW?name=support-devops&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2387&period=days&projects=10009&timeZone=user&wlFormat=hours'"
-            >Support Devops</a
-          ><br />
-        </li>
-        <li>
-          <a
-            :href="'https://neo9-team.atlassian.net/projects/CATW?name=hors-projet&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2385&period=days&projects=10009&timeZone=user&wlFormat=hours'"
+            :href="'https://neo9-team.atlassian.net/projects/CATW?name=hors-projet&selectedItem=com.atlassian.plugins.atlassian-connect-plugin:com.gebsun.atlassian.reports.free__report#!/?datem=useFromTo&from=' + startDateString + '&to=' + endDateString + '&groupBy=issuetype%2Cissuekey%2Ccom.gebsun.fields.worklogAuthor&jqlFilter=key %3D CATW-2385&period=days&projects=10009&timeZone=user&wlFormat=hours'"
             >Hors projet</a
-          ><br />
+          >
+        </li>
+        <li>
+          <a
+            href="https://docs.google.com/spreadsheets/d/1iJmqCDzAD4_O0Pv0YOa9EoB-ALklRtW_sDcypHLfoek/edit#gid=2008209731&range=A1"
+            >Référence (Google Sheet)</a
+          >
         </li>
       </ul>
     </div>
