@@ -55,8 +55,8 @@
       );
       const endDateClockify = new Date();
       dateClockify.value = [startDateClockify, endDateClockify];
-      const startDateClockifyString = date.value[0].toISOString().split("T")[0];
-      const endDateClockifyString = date.value[1].toISOString().split("T")[0];
+      const startDateClockifyString = dateClockify.value[0].toISOString().split("T")[0];
+      const endDateClockifyString = dateClockify.value[1].toISOString().split("T")[0];
 
       Vue.createApp({
         components: { Datepicker: VueDatePicker },
@@ -78,6 +78,10 @@
                 .split("T")[0];
               this.endDateClockifyString = date[1].toISOString().split("T")[0];
             },
+            showClockifyRunSupport: false,
+            showClockifyRunDevops: false,
+            showClockifyConception: false,
+            showClockifyHorsProjet: false
           };
         },
         methods: {},
@@ -162,7 +166,16 @@
                 :href="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2262f4cc3aa55bc1652133ca32%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22CONTAINS%22%7D%7D'"
                 target="_blank"
                 >Run Support Clockify</a
+              ><br />
+              <button @click="showClockifyRunSupport = !showClockifyRunSupport">Show/hide</button>
+              <iframe
+                v-if="showClockifyRunSupport"
+                :src="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2262f4cc3aa55bc1652133ca32%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22CONTAINS%22%7D%7D'"
+                height="500"
+                width="100%"
+                style="border: none"
               >
+              </iframe>
             </li>
             <li>
               <a href="https://neo9-team.atlassian.net/browse/CATW-2387"
@@ -173,7 +186,16 @@
                 :href="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2263bd23cd6e59b4047b40e901%22,%2262fb829cf255177d051d16ba%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22CONTAINS%22%7D%7D'"
                 target="_blank"
                 >Run Devops Clockify</a
+              ><br />
+              <button @click="showClockifyRunDevops = !showClockifyRunDevops">Show/hide</button>
+              <iframe
+                v-if="showClockifyRunDevops"
+                :src="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2263bd23cd6e59b4047b40e901%22,%2262fb829cf255177d051d16ba%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22CONTAINS%22%7D%7D'"
+                height="500"
+                width="100%"
+                style="border: none"
               >
+              </iframe>
             </li>
           </ul>
         </li>
@@ -189,7 +211,16 @@
                 :href="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2262fba6cdf255177d051f9025%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22CONTAINS%22%7D%7D'"
                 target="_blank"
                 >Conception Clockify</a
+              ><br />
+              <button @click="showClockifyConception = !showClockifyConception">Show/hide</button>
+              <iframe
+                v-if="showClockifyConception"
+                :src="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2262fba6cdf255177d051f9025%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22CONTAINS%22%7D%7D'"
+                height="500"
+                width="100%"
+                style="border: none"
               >
+              </iframe>
             </li>
           </ul>
         </li>
@@ -200,6 +231,16 @@
             target="_blank"
             >Clockify</a
           >
+          <br />
+              <button @click="showClockifyHorsProjet = !showClockifyHorsProjet">Show/hide</button>
+              <iframe
+                v-if="showClockifyHorsProjet"
+                :src="'https://app.clockify.me/reports/summary?start='+startDateClockifyString+'T00:00:00.000Z&end='+endDateClockifyString+'T23:59:59.999Z&filterValuesData=%7B%22tags%22:%5B%2262f4cc3aa55bc1652133ca32%22%5D,%22projects%22:%5B%22without%22,%226177d741517ab54ef31bc64f%22,%225dcaa6896da4494ac414f22c%22,%225df0b840fab8a24fddb84695%22,%226214e38140f87e49fd9c2210%22,%225ed63647f506fc1c940b8d8d%22,%225cdaf10a1080ec2d4a8e523b%22,%22608032573535c248d5d5b477%22,%225cdaf5d7d278ae20615697db%22,%225cdac23e1080ec2d4a8df537%22,%225dcc1e3e6da4494ac419188c%22,%2263878e4b7a81f551823fa20e%22,%225d419c4cd278ae57b51beddf%22,%225cf909fff15c98023cc85b0e%22,%226037adb5cc69900993cc8e64%22,%225f55f5064dd1295ce569eff0%22,%2261b8824cbbafec276a3b5469%22,%22625eb2b978a19a081a556d85%22,%225cf78570d278ae7d8ecd00e1%22%5D%7D&filterOptions=%7B%22tags%22:%7B%22status%22:%22ACTIVE%22,%22contains%22:%22DOES_NOT_CONTAIN%22%7D,%22projects%22:%7B%22status%22:%22ACTIVE%22%7D%7D'"
+                height="500"
+                width="100%"
+                style="border: none"
+              >
+              </iframe>
         </li>
       </ul>
     </div>
